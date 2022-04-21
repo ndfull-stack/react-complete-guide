@@ -2,9 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import React, {useState} from 'react';
 function App() {
 
-  const expenses = [
+  const [expenses,updateExpenses] = useState([
     {
       id: "1",
       title: 'Car Insurance',
@@ -23,8 +24,18 @@ function App() {
       amount: 500,
       date: new Date(2022, 8, 15)
     }
-  ];
-
+  ]);
+  const addExpenseHandler = (expenseData)=>{
+   const newExpenseData = {
+      ...expenseData,
+      id : Math.random().toString()
+    }
+    console.log('Added Data',newExpenseData);
+    updateExpenses((prevState)=>{
+      return [...prevState,newExpenseData];
+    })
+    console.log(expenses);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -34,7 +45,7 @@ function App() {
         </p>
         <p>Namandeep here</p>
 
-        <NewExpense/>
+        <NewExpense onAddExpense={addExpenseHandler}/>
         <Expenses expenses={expenses}/>
         <a
           className="App-link"

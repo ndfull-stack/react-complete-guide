@@ -32,6 +32,8 @@ function App() {
     }
     console.log('Added Data',newExpenseData);
     updateExpenses((prevState)=>{
+      console.log(prevState)
+      console.log([...prevState,newExpenseData])
       return [...prevState,newExpenseData];
     })
     console.log(expenses);

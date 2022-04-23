@@ -8,19 +8,16 @@ function Expenses(props) {
 
   const [filterYear,setFilterYear] = useState('2022');
   let expenses;
+  const filterExpenses =  props.expenses.filter(expense=> expense.date.getFullYear().toString() === filterYear);
   if(filterYear !== ''){
-  expenses = props.expenses.filter((expense)=>{
-    return expense.date.getFullYear().toString() === filterYear;
-  }).map((expense,id)=>{
+  expenses = filterExpenses.map((expense)=>{
        return (
-      <div key={id}>
        <ExpenseItems
+        key={expense.id}
         id={expense.id}
         title={expense.title}
         amount={expense.amount}
-        date={expense.date}>
-        </ExpenseItems>
-        </div>)
+        date={expense.date}/>)
   })
 }
   

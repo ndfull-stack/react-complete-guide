@@ -3,38 +3,39 @@ import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 import React, {useState} from 'react';
+const INITIAL_EXPENSES = [
+  {
+    id: "1",
+    title: 'Car Insurance',
+    amount: 250.5,
+    date: new Date(2022, 10, 2)
+  },
+  {
+    id: "2",
+    title: 'Health Insurance',
+    amount: 125,
+    date: new Date(2022, 7, 14)
+  },
+  {
+    id: "3",
+    title: 'Medical Premium',
+    amount: 500,
+    date: new Date(2022, 8, 15)
+  }
+];
 function App() {
 
-  const [expenses,updateExpenses] = useState([
-    {
-      id: "1",
-      title: 'Car Insurance',
-      amount: 250.5,
-      date: new Date(2022, 10, 2)
-    },
-    {
-      id: "2",
-      title: 'Health Insurance',
-      amount: 125,
-      date: new Date(2022, 7, 14)
-    },
-    {
-      id: "3",
-      title: 'Medical Premium',
-      amount: 500,
-      date: new Date(2022, 8, 15)
-    }
-  ]);
+  const [expenses,updateExpenses] = useState(INITIAL_EXPENSES);
   const addExpenseHandler = (expenseData)=>{
    const newExpenseData = {
       ...expenseData,
       id : Math.random().toString()
     }
     console.log('Added Data',newExpenseData);
-    updateExpenses((prevState)=>{
-      console.log(prevState)
-      console.log([...prevState,newExpenseData])
-      return [...prevState,newExpenseData];
+    updateExpenses((prevExpensesState)=>{
+      console.log(prevExpensesState)
+      console.log([...prevExpensesState,newExpenseData])
+      return [newExpenseData,...prevExpensesState];
     })
     console.log(expenses);
   }

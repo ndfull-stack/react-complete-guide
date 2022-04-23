@@ -2,7 +2,7 @@ import React from 'react';
 import './ExpensesFilter.css';
 const ExpensesFilter = (props)=>{
     const handleFilterChange = (event)=>{
-        //console.log(event.target.value); //Added by Namandeep Singh
+        //console.log(event.target.value); //Added by ND Singh
         props.onFilterChange(event.target.value);  //sending data from child to parent by calling parent function
     }
 return(

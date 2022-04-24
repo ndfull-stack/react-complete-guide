@@ -20,7 +20,7 @@ const INITIAL_EXPENSES = [
     id: "3",
     title: 'Medical Premium',
     amount: 500,
-    date: new Date(2022, 8, 15)
+    date: new Date(2022, 0, 15)
   }
 ];
 function App() {

@@ -33,7 +33,7 @@ const Chart = props =>{
            return <ChartBar 
            key = {dataPoint.label}
            label={dataPoint.label} amount={dataPoint.value} 
-           fill = {(dataPoint.value / maxAmount)  * 100 + '%'}
+           fill = {dataPoint.value / maxAmount  * 100 + '%'}
            maxValue={maxAmount}/>
         })}
        

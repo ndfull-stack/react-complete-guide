@@ -29,11 +29,11 @@ const Chart = props =>{
         return <></>
     }
     return <div className='chart'>
-        {dataPoints.map((monthlyExpense) =>{
+        {dataPoints.map((dataPoint) =>{
            return <ChartBar 
-           key = {monthlyExpense.label}
-           label={monthlyExpense.label} amount={monthlyExpense.value} 
-           fill = {(monthlyExpense.value / maxAmount)  * 100 + '%'}
+           key = {dataPoint.label}
+           label={dataPoint.label} amount={dataPoint.value} 
+           fill = {(dataPoint.value / maxAmount)  * 100 + '%'}
            maxValue={maxAmount}/>
         })}
        
